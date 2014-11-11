@@ -1,5 +1,5 @@
 # API Versioning in Rails
-This document contains three different approaches for API versioning in Rails.
+This document contains some different approaches for API versioning in Rails.
 
 ### Put the version in the URL
 - Namespace your routes:
@@ -26,6 +26,12 @@ end
 - Your new endpoints:
   - /api/v1/articles
   - /api/v2/articles
+
+#### Pros/Cons
+Pros:
+  - Simpler than creating a new mime-type and specifying version number in header
+Cons:
+  - Some consider putting the version numbers in the URL
 
 ### Send the version in the Accept header
 The following solution comes from an [article](http://www.bignerdranch.com/blog/adding-versions-rails-api/) by Jay Hayes. This approach is basically as follows:
@@ -90,3 +96,8 @@ respond_to do |format|
   format.articles_json # Your response here
 end
 ```
+#### Pros/cons
+Pros:
+  - Considered a best practice
+Cons:
+  - A little bit heaver than the URL version approach
